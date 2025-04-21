@@ -1,12 +1,26 @@
+/**
+ * @description
+ * Identifies record IDs by name across multiple Salesforce objects using SOSL.
+ * Provides an invocable method for use in Flows and Process Builder.
+ */
 public with sharing class IdentifyRecordIdsByNameMultiObjects_V1 {
 
     /* ---------- Input DTO ------------------------------------------- */
+    /**
+     * @description Input DTO for the SOSL search, includes recordName and optional objectApiNames.
+     */
     public class Request {
+        /**
+         * @description Initial text of the Name field to search for (e.g., "Acme").
+         */
         @InvocableVariable(required=true
             label='Record Name Prefix'
             description='Initial text of the Name field to search for (e.g., "Acme").')
         public String recordName;
 
+        /**
+         * @description Optional list of object API names to search (e.g., ["Account","Contact"]). If omitted, a default set of common objects is used.
+         */
         @InvocableVariable(
             label='Object API Names'
             description='Optional list of object API names to search (e.g., ["Account","Contact"]). If omitted, a default set of common objects is used.')
@@ -14,7 +28,13 @@ public with sharing class IdentifyRecordIdsByNameMultiObjects_V1 {
     }
 
     /* ---------- Output DTO ------------------------------------------ */
+    /**
+     * @description Output DTO containing the list of matching record IDs.
+     */
     public class Response {
+        /**
+         * @description Unified list of record Ids matching the search criteria.
+         */
         @InvocableVariable(label='Matching Record IDs'
             description='Unified list of record Ids matching the search criteria.')
         public List<Id> recordIds;
@@ -24,6 +44,14 @@ public with sharing class IdentifyRecordIdsByNameMultiObjects_V1 {
     @InvocableMethod(
         label='Identify Record IDs by Name (Multi‑Object) V1'
         description='Searches for up to five record IDs per specified object (or a sensible default set) whose Name field starts with the provided text and returns a unified list of matching IDs.')
+    /**
+     * @description
+     * Invocable method that searches for up to five record IDs per specified object (or a sensible default set)
+     * whose Name field starts with the provided text and returns a unified list of matching IDs.
+     *
+     * @param requests List of Request DTOs containing the search prefix and optional object API names.
+     * @return List of Response DTOs, each containing a unified list of matching record IDs.
+     */
     public static List<Response> run(List<Request> requests) {
         List<Response> out = new List<Response>();
 
