@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Searches for up to five record IDs per specified object (or a sensible default set) whose Name field starts with the provided text and returns a unified list of matching IDs.</description>
+    <invocationTarget>IdentifyRecordIdsByNameMultiObjects_V1</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+    <masterLabel>Identify Record IDs by Name (Multi‑Object) V1</masterLabel>
+</GenAiFunction>

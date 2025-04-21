@@ -1,0 +1,25 @@
+{
+  "required" : [ "recordName" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "objectApiNames" : {
+      "title" : "Object API Names",
+      "description" : "Optional list of object API names to search (e.g., [\"Account\",\"Contact\"]). If omitted, a default set of common objects is used.",
+      "maxItems" : 2000,
+      "items" : {
+        "lightning:type" : "lightning__textType"
+      },
+      "lightning:type" : "lightning__listType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "recordName" : {
+      "title" : "Record Name Prefix",
+      "description" : "Initial text of the Name field to search for (e.g., \"Acme\").",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}
